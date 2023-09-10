@@ -52,12 +52,6 @@
     transition: all .5s ease-out; }
     .menu-branding.show {
       transform: translate3d(0, 0, 0); }
-    .menu-branding .portrait {
-      width: 250px;
-      height: 250px;
-      background: url(/dist/img/profile.jpg);
-      border-radius: 50%;
-      border: solid 3px #440066; }
   .menu .nav-item {
     transform: translate3d(600px, 0, 0);
     transition: all .5s ease-out; }
@@ -221,6 +215,30 @@ main {
 .btn-light {
   background: white;
   color: #333; }
+
+.content-container {
+  height: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #f4f3f3;
+  padding: 2rem;
+  text-align: center; }
+  .content-container p, .content-container h2, .content-container h3, .content-container a, .content-container li {
+    text-align: left; }
+  .content-container a {
+    color: #0000EE;
+    text-decoration: underline; }
+  .content-container img {
+    object-fit: contain;
+    height: 50%;
+    width: 50%; }
+
+.project-main {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0; }
 
 @media screen and (min-width: 1171px) {
   .projects {

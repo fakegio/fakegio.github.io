@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <link rel="stylesheet" href="dist/css/project.css" />
+    <title>Project 1: Duke Students GPA</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu-btn">
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+      <nav class="menu">
+        <div class="menu-branding"></div>
+        <ul class="menu-nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About me</a>
+          </li>
+          <li class="nav-item current">
+            <a href="work.html" class="nav-link">Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="project-main">
+      <h1 class="lg-heading">
+        Project 1:
+        <span class="text-secondary">The College Student Dilemma</span>
+      </h1>
+      <div class="content-container">
+        <h2>Introducing The Problem</h2>
+        <p>
+          There's a belief that states college students can only choose two out
+          of the following three: a social life, good grades, and adequate
+          sleep. This can be accredited to numerous factors such as a rigorous
+          course load, student employment, extracurriculars, bad time
+          management, etc. In this project, I will be exploring if students
+          attending Duke University suffer from this dilemma or if they manage
+          to find a balance between the three. Some questions I am planning to
+          answer are:
+        </p>
+        <ul>
+          <li>How does a social life affect academic performance?</li>
+          <li>How does sleep affect academic performance?</li>
+          <li>
+            Can Duke students have all 3 of the following: A social life, good
+            grades, and an adequate amount of sleep.
+          </li>
+        </ul>
+        <h2>Introducing The Data</h2>
+        <img src="dist/img/df_head_before.PNG" alt="head of dataset before" />
+        <p>
+          I found the dataset on
+          <a
+            href="https://www.kaggle.com/datasets/joebeachcapital/duke-students-gpa"
+            >Kaggle</a
+          >
+          but the original can be found on
+          <a href="https://www.openintro.org/data/index.php?data=gpa"
+            >OpenIntro</a
+          >. The data set includes information from a survey conducted at Duke.
+          This survey asked 55 students their GPA, the number of hours they
+          study per week, how many hours they sleep per night, how often they go
+          out per week, and their gender.
+        </p>
+        <h2>Pre-Processing</h2>
+        <img src="dist/img/isNull.PNG" alt="sum of null values" />
+        <p>
+          Upon first inspection, I started off by checking the data for any null
+          values, luckily there were none.
+        </p>
+        <img src="dist/img/drop_gender.PNG" alt="drop gender column" />
+        <p>
+          I proceeded to drop the gender column as it won't have any effect on
+          the questions I'm hoping to answer.
+        </p>
+        <img src="dist/img/rename.PNG" alt="renamed columns" />
+        <p>
+          Next, I decided to change each column name to something a bit more
+          descriptive.
+        </p>
+        <img
+          src="dist/img/math_floor.PNG"
+          alt="rounded down nights per week values"
+        />
+        <p>
+          Then, I rounded the nights out per week values down because it doesn't
+          make sense to go out half a night per week, to me at least.
+        </p>
+        <img src="dist/img/df_head.PNG" alt="df head after" />
+        <p>
+          Due to the small sample size of the dataset and no null values, there
+          wasn't much pre-processing to do.
+        </p>
+        <h2>Data Visualization</h2>
+        <img
+          src="dist/img/distribution_studying.png"
+          alt="distribution of GPA vs weekly studying hours"
+        />
+        <p>
+          First, I wanted to see the distribution between GPA and weekly study
+          hours. This bar plot shows the average GPA over the distribution of
+          hours of studying per week. The highest average GPA is associated with
+          14 hours of studying per week, but the larger error bar for this
+          specific value indicates that there is more variability compared to
+          the rest of the hourly values.
+        </p>
+        <img
+          src="dist/img/heatmap_p1_features.png"
+          alt="student behaviors and academic performance"
+        />
+        <p>
+          This heatmap illustrates the correlations between the features. A
+          value closer to 1 indicates a stronger positive linear correlation
+          between the two features, while a value closer to -1 indicates a
+          stronger negative linear correlation.
+        </p>
+        <p>
+          It was surprising to observe the strongest positive correlation
+          between two features: sleep per night and nights out per week. One
+          might expect that going out more frequently would result in less
+          sleep, but this correlation suggests the opposite.
+        </p>
+        <h3>Social Habits</h3>
+        <img
+          src="dist/img/distribution_nights.png"
+          alt="distribution of students weekly nights out"
+        />
+        <p>
+          Observing the correlation between hours of study per week and GPA was
+          also intriguing. The data suggests a very weak positive correlation of
+          0.04 between the two, making it the joint weakest correlation among
+          the group.
+        </p>
+        <p>
+          Beginning the exploration of students' weekly nights out, it's evident
+          that the majority engage in some level of social activity. Out of the
+          55 students surveyed, only two abstain from going out entirely. The
+          most common frequency is once a week, with approximately 19 students
+          following this pattern. Interestingly, 34 students go out at least
+          twice a week, showing that this data set as a whole is quite social.
+        </p>
+        <p>Now, let's see how these social habits affect GPA, if at all.</p>
+        <img
+          src="dist/img/nights_vs_gpa.png"
+          alt="gpa changes with nights out"
+        />
+        <p>
+          This line plot illustrates the relationship between nights out per
+          week and GPA. Surprisingly, It shows that as the number of nights out
+          per week increases, GPA generally increases as well. However, an
+          interesting observation is a slight decrease in GPA when transitioning
+          from 1 to 2 nights per week. Besides that, Duke students generally
+          tend to have a higher GPA as they go out more frequently during the
+          week.
+        </p>
+        <h3>Sleep Habits</h3>
+        <p>
+          According to the
+          <a
+            href="https://www.nhlbi.nih.gov/health/sleep/how-much-sleep#:~:text=Experts%20recommend%20that%20adults%20sleep,or%20more%20hours%20a%20night."
+            >National Heart, Lung, and Blood Institute</a
+          >, adults should be getting at least 7 hours of sleep at night.
+        </p>
+        <img
+          src="dist/img/sleep_distribution.png"
+          alt="distribution of student sleep hours"
+        />
+        <p>
+          Out of the 55 surveyed students, 36 reported getting the recommended
+          minimum 7 hours of sleep, while 19 students indicated that they don't
+          get enough sleep.
+        </p>
+        <img
+          src="dist/img/sleep_vs_gpa.png"
+          alt="relationship between hours of sleep and gpa"
+        />
+        <p>
+          With the exception of one student, all students were able to maintain
+          a GPA above or equal to 3.0, regardless of the amount of sleep they
+          got per night. The regression line shows a slight positive trend
+          suggesting the more sleep per night, the higher their GPA. The
+          confidence interval narrows around 7 hours of sleep, indicating higher
+          certainty in this range compared to the rest of the regression line.
+        </p>
+        <h3>The Dilemma Visualization</h3>
+        <img
+          src="dist/img/dilemma_visual.png"
+          alt="visualizing gpa, social life, and sleep habits"
+        />
+        <p>
+          The above bubble chart shows nightly hours of sleep on the x-axis, GPA
+          on the y-axis, and the color of the bubbles represent weekly nights
+          out. A cluster of students gets 7 hours of sleep, with GPAs ranging
+          from 3.25 to 4.0. Most of these students go out 1-2 nights per week.
+          Another intriguing cluster is the one with 8 hours of sleep and a GPA
+          ranging from 3.75 to 4.0. This small cluster contains a wider range of
+          weekly nights out from 1-4 nights.
+        </p>
+        <h2>Storytelling</h2>
+        <p>
+          In summary, I wanted to explore how the sleep, social life, and GPA
+          habits affect one another. I was able to find trends that weren't too
+          surprising, such as a positive regression between sleep and GPA, and
+          trends that were pretty surprising, such as a consistent increase in
+          GPA as students have more weekly nights out. I was personally
+          surprised to see that the majority of students actually get the
+          minimum recommended amount of sleep. As a college student surrounded
+          by other students, it's hard to find people who get at least 7 hours
+          of sleep consistently. All in all, it seems that this population at
+          Duke can maintain a balance between grades, sleep, and a social life.
+        </p>
+        <h2>Impact</h2>
+        <p>
+          The positive trend shown in the relationship between social life and
+          GPA may cause some harm, as going out every night does not guarantee a
+          higher GPA. With only 55 students, this small sample may contain
+          inaccuracies. This could be mitigated by including additional data,
+          such as whether students work and their weekly working hours, as well
+          as distinguishing between undergraduate and graduate students. Also,
+          Duke is a prestigous university that selects top candidates, so their
+          students are generally more responsible and disciplined. Exploring
+          these habits may vary by university, especially ones with a strong
+          party culture.
+        </p>
+        <h2>References</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.kaggle.com/datasets/joebeachcapital/duke-students-gpa"
+              >Dataset on Kaggle</a
+            >
+          </li>
+          <li>
+            <a href="https://www.openintro.org/data/index.php?data=gpa"
+              >Dataset on OpenIntro</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.nhlbi.nih.gov/health/sleep/how-much-sleep#:~:text=Experts%20recommend%20that%20adults%20sleep,or%20more%20hours%20a%20night."
+              >National Heart,Lung, and Blood Institute</a
+            >
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script src="dist/js/main.js"></script>
+  </body>
+</html>
