@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <link rel="stylesheet" href="dist/css/project.css" />
+    <title>Project 2: Classifying Popular Songs</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu-btn">
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+      <nav class="menu">
+        <div class="menu-branding"></div>
+        <ul class="menu-nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About me</a>
+          </li>
+          <li class="nav-item current">
+            <a href="work.html" class="nav-link">Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="project-main">
+      <h1 class="lg-heading">
+        Project 2:
+        <span class="text-secondary">Classifying Popular Songs</span>
+      </h1>
+      <div class="content-container">
+        <h2>Introducing The Problem</h2>
+        <p>
+          I've always wondered how songs become popular seemingly out of
+          nowhere, specifically, songs by lesser-known artists. Of course,
+          marketing, including social media, plays a significant role, but what
+          exactly captivates people and propels a song to popularity? I'm sure
+          there's a point where genre influences current popularity. For
+          instance, in 2023, a pop song is more likely to top the charts
+          compared to a newly-released classical piece. Why? And can we predict
+          whether a song is currently popular based solely on its features?
+        </p>
+        <h2>Introducing The Data</h2>
+        <img
+          src="dist/img/project_2/data_before_cleaning.PNG"
+          alt="head of dataset before"
+        />
+        <p>
+          I'm going to be using a data set from November 2022 containing spotify
+          songs and their attributes.
+        </p>
+        <p>
+          I found the dataset on
+          <a
+            href="https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset?resource=download"
+            >Kaggle.</a
+          >
+          According to the author, the dataset was "collected using Spotify's
+          Web API and Python."
+        </p>
+        <p>
+          The dataset contains 114,000 rows (songs) and 21 columns. The feature
+          descriptions are as follows:
+        </p>
+        <ul>
+          <li>track_id: The Spotify ID for the track</li>
+          <li>
+            artists: The artists' names who performed the track. If there is
+            more than one artist, they are separated by a ;
+          </li>
+          <li>album_name: The album name in which the track appears</li>
+          <li>track_name: Name of the track</li>
+          <li>
+            <strong>popularity</strong>: The popularity of a track is a value
+            between 0 and 100, with 100 being the most popular. The popularity
+            is calculated by algorithm and is based, in the most part, on the
+            total number of plays the track has had and how recent those plays
+            are. Generally speaking, songs that are being played a lot now will
+            have a higher popularity than songs that were played a lot in the
+            past. Duplicate tracks (e.g. the same track from a single and an
+            album) are rated independently. Artist and album popularity is
+            derived mathematically from track popularity.
+          </li>
+          <li>duration_ms: The track length in milliseconds</li>
+          <li>
+            explicit: Whether or not the track has explicit lyrics (true = yes
+            it does; false = no it does not OR unknown)
+          </li>
+          <li>
+            danceability: Danceability describes how suitable a track is for
+            dancing based on a combination of musical elements including tempo,
+            rhythm stability, beat strength, and overall regularity. A value of
+            0.0 is least danceable and 1.0 is most danceable
+          </li>
+          <li>
+            energy: Energy is a measure from 0.0 to 1.0 and represents a
+            perceptual measure of intensity and activity. Typically, energetic
+            tracks feel fast, loud, and noisy. For example, death metal has high
+            energy, while a Bach prelude scores low on the scale
+          </li>
+          <li>
+            key: The key the track is in. Integers map to pitches using standard
+            Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no
+            key was detected, the value is -1
+          </li>
+          <li>loudness: The overall loudness of a track in decibels (dB)</li>
+          <li>
+            mode: Mode indicates the modality (major or minor) of a track, the
+            type of scale from which its melodic content is derived. Major is
+            represented by 1 and minor is 0
+          </li>
+          <li>
+            speechiness: Speechiness detects the presence of spoken words in a
+            track. The more exclusively speech-like the recording (e.g. talk
+            show, audio book, poetry), the closer to 1.0 the attribute value.
+            Values above 0.66 describe tracks that are probably made entirely of
+            spoken words. Values between 0.33 and 0.66 describe tracks that may
+            contain both music and speech, either in sections or layered,
+            including such cases as rap music. Values below 0.33 most likely
+            represent music and other non-speech-like tracks
+          </li>
+          <li>
+            acousticness: A confidence measure from 0.0 to 1.0 of whether the
+            track is acoustic. 1.0 represents high confidence the track is
+            acoustic
+          </li>
+          <li>
+            instrumentalness: Predicts whether a track contains no vocals. "Ooh"
+            and "aah" sounds are treated as instrumental in this context. Rap or
+            spoken word tracks are clearly "vocal". The closer the
+            instrumentalness value is to 1.0, the greater likelihood the track
+            contains no vocal content
+          </li>
+          <li>
+            liveness: Detects the presence of an audience in the recording.
+            Higher liveness values represent an increased probability that the
+            track was performed live. A value above 0.8 provides strong
+            likelihood that the track is live
+          </li>
+          <li>
+            valence: A measure from 0.0 to 1.0 describing the musical
+            positiveness conveyed by a track. Tracks with high valence sound
+            more positive (e.g. happy, cheerful, euphoric), while tracks with
+            low valence sound more negative (e.g. sad, depressed, angry)
+          </li>
+          <li>
+            tempo: The overall estimated tempo of a track in beats per minute
+            (BPM). In musical terminology, tempo is the speed or pace of a given
+            piece and derives directly from the average beat duration
+          </li>
+          <li>
+            time_signature: An estimated time signature. The time signature
+            (meter) is a notational convention to specify how many beats are in
+            each bar (or measure). The time signature ranges from 3 to 7
+            indicating time signatures of 3/4, to 7/4.
+          </li>
+          <li>track_genre: The genre in which the track belongs</li>
+        </ul>
+        <h2>Pre-Processing</h2>
+        <img src="dist/img/project_2/rename.PNG" alt="rename unnamed column" />
+        <p>First, I'm going to give the unnamed column a name.</p>
+        <img
+          id="nulls_img"
+          src="dist/img/project_2/searching_nulls.PNG"
+          alt="searching for nulls"
+        />
+        <p>Searching for null values.</p>
+        <img
+          src="dist/img/project_2/artist_null.PNG"
+          alt="searching for specific null"
+        />
+        <p>
+          Looks like all 3 null values from the previous step are in the same
+          row, so this will get dropped since we don't have a clue on who it
+          belongs to.
+        </p>
+        <img
+          src="dist/img/project_2/drop_null.PNG"
+          alt="dropping null values"
+        />
+        <img
+          src="dist/img/project_2/show_size.PNG"
+          alt="show size of unique tracks"
+        />
+        <p>
+          Next, I wanted to see how many tracks were unique and found out that
+          almost half the tracks were duplicates.
+        </p>
+        <img
+          src="dist/img/project_2/drop_duplicates.PNG"
+          alt="dropping duplicates"
+        />
+        <p>Dropping the duplicate tracks by their names.</p>
+        <img
+          src="dist/img/project_2/show_shape.PNG"
+          alt="shape after dropping duplicates"
+        />
+        <p>From 140,000 rows to 73,608 rows.</p>
+        <img src="dist/img/project_2/genres.PNG" alt="showing genres" />
+        <p>Let's look at the genres in the data.</p>
+        <img
+          src="dist/img/project_2/drop_genres.PNG"
+          alt="dropping sleep and comedy tracks"
+        />
+        <p>
+          Because we only care about songs, we'll drop sleep and comedy tracks.
+        </p>
+        <img
+          src="dist/img/project_2/drop_columns.PNG"
+          alt="drop other columns"
+        />
+        <p>
+          Finally, we're dropping columns that don't contribute and columns that
+          may lead to overfitting.
+        </p>
+        <img
+          src="dist/img/project_2/head_after_cleaning.PNG"
+          alt="head after cleaning"
+        />
+        <p>All done.</p>
+        <h2>Data Visualization</h2>
+        <p>
+          Out of the remaining features, I anticipate that the danceability,
+          energy, and genre features would have the most impact on a song with
+          popularity. Let's plot these.
+        </p>
+        <img
+          src="dist/img/project_2/danceability.png"
+          alt="danceability vs popularity"
+        />
+        <p>
+          This hexbin plot represents the relationship between danceability and
+          popularity for a dataset of songs. Each bin represents the density of
+          songs with the corresponding danceability and popularity values.
+          There's a notable cluster for songs with moderate danceability and
+          moderate popularity. Not much can be said about a correlation but
+          there is a concentration of songs falling in the middle for both
+          features.
+        </p>
+        <img src="dist/img/project_2/energy.png" alt="energy vs popularity" />
+        <p>
+          This kernel density estimation (KDE) plot works similar to the hexbin
+          plot. The darker hue illustrates a higher concentration of songs with
+          the corresponding energy and popularity values. As shown, there seems
+          to be a cluster at very high energy levels and moderate popularity.
+          Again, no strong correlation but i found it surprising to see highly
+          concentrated areas for both plots.
+        </p>
+        <img
+          src="dist/img/project_2/popular_genres.png"
+          alt="popular genres in our data"
+        />
+        <p>
+          Finally, this bar chart depicts the 10 most popular genres found in
+          the dataset. This was found by grouping track genres and summing their
+          popularity counts. This chart shows how diverse the dataset is, I
+          hadn't heard of some these genres before.
+        </p>
+        <h2>Modeling</h2>
+        <p>
+          I'm going to be using a decision tree because I want to gain insight
+          on what specific features makes a song popular. Decision trees are
+          would help me solve that because they classify data by using the most
+          impactful features on each level. Decision trees are also easy to
+          visualize, although they are prone to overfitting and are biased
+          towards dominant classes.
+        </p>
+        <p>
+          In order to use a decision tree, I need to convert the explicit and
+          genre columns into numerical values.
+        </p>
+        <img src="dist/img/project_2/dummies.PNG" alt="create dummies" />
+        <p>
+          I arbitrarily consider songs in the 75th percentile of popularity
+          values in the data set to be popular. I create a new column
+          determining if each track is "popular" or not.
+        </p>
+        <img
+          src="dist/img/project_2/set_features.PNG"
+          alt="setting the features"
+        />
+        <p>
+          Next, we need to set our X and y values. X contains the features, y
+          contains the target, in this case, our target is the 75th percentile.
+        </p>
+        <img src="dist/img/project_2/train.PNG" alt="training the model" />
+        <p>
+          Now, I'm splitting the test size to be 20% of the data, while the
+          training size is 80%.
+        </p>
+        <img src="dist/img/project_2/decision_tree.png" alt="decision tree" />
+        <p>
+          The model is trained and here is a visual depiction. As seen above, it
+          looks like the most important feature was whether a song was of the
+          "pop-film" genre. If not, it checks if the track is a "pop" track. If
+          it is a pop-film track, it checks for its energy value. It keeps
+          checking for specific features until it predicts if the track is in
+          the 75th percentile.
+        </p>
+        <h2>Model Evaluation</h2>
+        <p>
+          The evaluation metric I use first is accuracy. I'm using accuracy
+          because it works best when the dataset is not balanced, like in our
+          case. Accuracy works by calculating the proportion of correct
+          predictions out of total predictions.
+        </p>
+        <img src="dist/img/project_2/score.PNG" alt="score of our model" />
+        <p>
+          Looks like our accuracy is about 74%. Let's look at some more
+          evaluation metrics.
+        </p>
+        <img src="dist/img/project_2/report.PNG" alt="classification report" />
+        <p>
+          It looks like our model was better at predicting if a song didn't make
+          the 75th percentile, with an all-around score of 83%.
+        </p>
+        <img
+          src="dist/img/project_2/fi.png"
+          alt="bar chart of feature importance"
+        />
+        <p>
+          This bar chart shows the most important features determining if a song
+          makes the 75th percentile or not. There is a spread amongst the top 10
+          features, they all have a big impact on our model's prediction.
+        </p>
+        <h2>Storytelling</h2>
+        <p>
+          I learned that the above 10 features play a huge role in the
+          popularity of a song. I was't expecting to see such a spread among so
+          many features. Our model, unfortunately, isn't the most accurate but I
+          was able to see that genre is not as important as I thought it'd be. I
+          was also surprised to see that danceability and energy of a song dont
+          have the most impact on a song as I thought they would, they are in
+          the top 10 of most impactful but I imagined them at the top two spots.
+          All in all, this shows that there's a lot that goes into music,
+          especially popular songs.
+        </p>
+        <h2>Impact</h2>
+        <p>
+          A positive impact this project could have is on the music industry.
+          Songs that have the features of a popular song could have marketing
+          priority compared to other songs. Negative impact could be some of the
+          limitations. For example, the popularity algorithm, our model, and
+          data availability could skew the results and could mislead. Also, the
+          dataset was last updated in November of 2022. This means the current
+          popularity feature reflects data up to that point and does not
+          represent the current popularity of songs.
+        </p>
+        <h2>References</h2>
+        <ul>
+          <li>
+            <a href="dist/notebooks/Project_2.ipynb" download=""
+              >Jupyter Notebook Download</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset?resource=download"
+              >Dataset on Kaggle</a
+            >
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script src="dist/js/main.js"></script>
+  </body>
+</html>

@@ -232,7 +232,8 @@ main {
   .content-container img {
     object-fit: contain;
     height: 50%;
-    width: 50%; }
+    width: 50%;
+    max-height: 300px; }
 
 .project-main {
   width: 80%;
