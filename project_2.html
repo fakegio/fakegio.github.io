@@ -38,13 +38,16 @@
         <h2>Introducing The Problem</h2>
         <p>
           I've always wondered how songs become popular seemingly out of
-          nowhere, specifically, songs by lesser-known artists. Of course,
-          marketing, including social media, plays a significant role, but what
-          exactly captivates people and propels a song to popularity? I'm sure
-          there's a point where genre influences current popularity. For
-          instance, in 2023, a pop song is more likely to top the charts
-          compared to a newly-released classical piece. Why? And can we predict
-          whether a song is currently popular based solely on its features?
+          nowhere, specifically, songs by lesser-known artists. Take, for
+          instance, 'Old Town Road' by Lil Nas X. Of course, marketing,
+          including social media, plays a significant role, but what exactly
+          captivates people and propels a song to popularity? I'm sure there's a
+          point where genre influences current popularity. For instance, in
+          2023, a pop song is more likely to top the charts compared to a
+          newly-released classical piece. Why? And can we predict whether a song
+          is currently popular based solely on its attributes? In this project,
+          I'm hoping to be able to predict whether a song makes the 75th
+          percentile in popularity based on its attributes.
         </p>
         <h2>Introducing The Data</h2>
         <img
@@ -216,8 +219,10 @@
           alt="drop other columns"
         />
         <p>
-          Finally, we're dropping columns that don't contribute and columns that
-          may lead to overfitting.
+          We're dropping the index and track_id columns because they're
+          numerical and won't help. Album name, track name, and liveness get
+          dropped because they're not as relevant as the other features. The
+          artists column is dropped due to potential overfitting.
         </p>
         <img
           src="dist/img/project_2/head_after_cleaning.PNG"
@@ -262,14 +267,22 @@
           popularity counts. This chart shows how diverse the dataset is, I
           hadn't heard of some these genres before.
         </p>
+        <p>
+          Overall, these visualizations have provided me with a new perspective
+          on how a song's popularity is influenced. Initially, I might have
+          expected these three features to carry more significance. Now, let's
+          explore further and determine which factors have a more substantial
+          impact through modeling.
+        </p>
         <h2>Modeling</h2>
         <p>
-          I'm going to be using a decision tree because I want to gain insight
-          on what specific features makes a song popular. Decision trees are
-          would help me solve that because they classify data by using the most
-          impactful features on each level. Decision trees are also easy to
-          visualize, although they are prone to overfitting and are biased
-          towards dominant classes.
+          I'm going to be using a decision tree model because I want to gain
+          insight on what specific features make a song popular. Decision trees
+          would help because they classify data by using the most impactful
+          features on each level. Decision trees work by recursively splitting
+          features with regard to their target variables purity. Decision trees
+          are easy to visualize and interpret, although they are prone to
+          overfitting and are biased towards dominant classes.
         </p>
         <p>
           In order to use a decision tree, I need to convert the explicit and
