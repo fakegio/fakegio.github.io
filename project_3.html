@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <link rel="stylesheet" href="dist/css/project.css" />
+    <title>Project 2: Classifying Popular Songs</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu-btn">
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+      <nav class="menu">
+        <div class="menu-branding"></div>
+        <ul class="menu-nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About me</a>
+          </li>
+          <li class="nav-item current">
+            <a href="work.html" class="nav-link">Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="project-main">
+      <h1 class="lg-heading">
+        Project 3:
+        <span class="text-secondary">Predicting Salary</span>
+      </h1>
+      <div class="content-container">
+        <h2>Introducing The Problem</h2>
+        <p>
+          According to the
+          <a
+            href="https://www.statista.com/topics/789/wages-and-salary/#topicOverview"
+            >Statista Research Department</a
+          >, the average annual wage in 2021 was estimated to be $74,738.
+          However, a study published by
+          <a href="https://jenzabar.com/2021-education-and-employment-survey"
+            >Jenzabar</a
+          >
+          in the same year, found that nearly half of American adults feel
+          they're underpaid. To address this concern, I believe that promoting
+          salary transparency can play a pivotal role in fighting underpayment.
+          So, I aim to predict salaries based on factors like age, education,
+          and experience. I also want to answer how much of an impact does
+          education have on salary? Does education contribute more to salary
+          than experience? By revealing how salaries are determined, we can help
+          address the problem of underpayment and make the job market fairer for
+          everyone.
+        </p>
+        <h2>Introducing The Data</h2>
+        <img src="dist/img/project_3/introduce_data.PNG" alt="introduce data" />
+        <p>
+          For this project, I'm going to be using a salary dataset found on
+          <a
+            href="https://www.kaggle.com/datasets/mohithsairamreddy/salary-data/data"
+            >Kaggle</a
+          >. This dataset includes 6,704 rows and 6 columns. The columns consist
+          of age, years of experience, job title, education level, and salary.
+        </p>
+        <h2>What Is Regression?</h2>
+        <p>
+          Regression is a statistical method used to model a target value based
+          on independent predictors. The two types of regression we've talked
+          about are linear regression and logistic regression. Linear regression
+          is used to find the relationship between independent and dependent
+          variables. Upon doing this, the regression model is then used to
+          predict continuous values. Logistic regression is mainly used for
+          classification purposes. Logistic regression usually has a finite
+          number of outcomes/outputs, such as "spam" or "not spam."
+        </p>
+        <p>
+          In this project, I'm going to be utilizing linear regression. So, how
+          does it work? First, we use the "least squares" method to fit a line
+          to the data. The least squares method sums up the squared value of the
+          individual residuals of a given line. This sum is sometimes called the
+          sum of squared residuals. The line of best fit is found by looking for
+          the slope and intercept of the line that best minimizes the sum of
+          squared residuals.
+        </p>
+        <p>
+          After finding the line of best fit, we can use R^2, also known as the
+          coefficient of determination, to tell us how much of our target can be
+          explained by our features. In other words, how "good" is our line of
+          best-fit.
+        </p>
+        <img src="dist/img/project_3/r_squared.jpg" alt="R squared formula" />
+        <h1>Experiment 1</h1>
+        <br />
+        <h2>Data Understanding</h2>
+        <img src="dist/img/project_3/describe_data.PNG" alt="describe data" />
+        <p>
+          Before diving in, I decided to look at the mean and standard deviation
+          for the numerical variables to get a better understanding of the data.
+        </p>
+        <img src="dist/img/project_3/salary_age.png" alt="Salary by age" />
+        <p>
+          Then, I plotted the relationship between age and salary. As you can
+          see, there is a strong positive correlation suggesting that as age
+          increases, salary tends to increase as well.
+        </p>
+        <img
+          src="dist/img/project_3/salary_experience.png"
+          alt="Salary by experience"
+        />
+        <p>
+          Next, I examined the relationship between years of experience and
+          salary, which revealed a strong resemblance to the previous graph.
+          This trend implies that individuals with more years of experience tend
+          to have a higher salary.
+        </p>
+        <p>
+          The consistent, upward trajectory depicted in the graphs underline the
+          influence that both age and years of experience have over an
+          individual's salary.
+        </p>
+        <img
+          src="dist/img/project_3/salary_by_gender.png"
+          alt="Salary by gender"
+        />
+        <p>
+          Finally, I wanted to see how gender affects salary. This bar chart
+          illustrates a comparison of average salaries across different gender
+          categories. The bar for males depicts an average salary of around
+          120,000 USD, while the female category shows an average salary of
+          around 110,000 USD. Additionally, the 'Other' category indicates an
+          average salary floating around 125,000 USD. This visual representation
+          highlights the disparities in average salaries among the different
+          gender groups, emphasizing potential variations in earnings based on
+          gender.
+        </p>
+        <p>
+          These visualizations made a strong argument to use age, years of
+          experience, and gender in our regression model to predict salary.
+        </p>
+        <h2>Pre-Processing</h2>
+        <img src="dist/img/project_3/null_table_1.PNG" alt="null table" />
+        <p>Searching for nulls. We can drop the first two rows immediately.</p>
+        <img src="dist/img/project_3/null_table_2.PNG" alt="null table" />
+        <p>
+          Dropping the 3rd row due to insufficient amount of information to fill
+          in the null values.
+        </p>
+        <img src="dist/img/project_3/null_table_3.PNG" alt="null table" />
+        <br />
+        <br />
+        <br />
+        <img
+          src="dist/img/project_3/developer_table.PNG"
+          alt="developer table"
+        />
+        <p>
+          I had planned to count the education levels for the 'Developer' job
+          title and fill in the null value, but since this row is the only one
+          with this job title, I'll drop it.
+        </p>
+        <img src="dist/img/project_3/null_table_4.PNG" alt="null table" />
+        <p>
+          Now, for each of these rows, I'm going to take the average salary
+          based on their education level, job title, and years of experience to
+          fill in the null value.
+        </p>
+        <img
+          src="dist/img/project_3/new_salary_engineer.PNG"
+          alt="new salary engineer"
+        />
+        <br />
+        <br />
+        <br />
+        <img
+          src="dist/img/project_3/new_salary_director.PNG"
+          alt="new salary director"
+        />
+        <br />
+        <br />
+        <br />
+        <img
+          src="dist/img/project_3/head_after_job_title.PNG"
+          alt="head after dropping job title"
+        />
+        <p>
+          Now, because regression models require numerical features, the "Job
+          Title" column would have to undergo some encoding to be used.
+          Although, considering the numerous job titles, this might introduce
+          unnecessary complexity to the model. Therefore, I decided to drop the
+          job title column altogether.
+        </p>
+        <p>
+          Before: ["Bachelor's", "Master's", 'PhD', "Bachelor's Degree",
+          "Master's Degree", 'High School', 'phD']
+        </p>
+        <p>After: ["Bachelor's", "Master's", 'PhD', 'High School']</p>
+        <p>
+          I realized the education levels were redundant, so I categorized them
+          into: 'High School', 'Bachelors', 'Masters', and 'PhD' for the sake of
+          consistency.
+        </p>
+        <img
+          src="dist/img/project_3/head_after_encoding.PNG"
+          alt="data after encoding"
+        />
+        <p>
+          I proceeded to one-hot encode the non-numerical columns to use in our
+          model.
+        </p>
+        <h2>Modeling</h2>
+        <p>
+          Before we build our model, we must standardize our numerical features.
+        </p>
+        <img
+          src="dist/img/project_3/standardization.PNG"
+          alt="standardization"
+        />
+        <p>
+          Now, we can separate our features from the target and fit the model.
+        </p>
+        <img
+          src="dist/img/project_3/separate_features.PNG"
+          alt="separate features"
+        />
+        <h2>Evaluation</h2>
+        <ul>
+          <li>Mean Absolute Error: 22891.561958207098</li>
+          <li>Root Mean Square Error: 29645.72737355227</li>
+          <li>Coefficient of Determination: 0.6460415017773518</li>
+        </ul>
+        <p>
+          For the model evaluation, I used the mean absolute error and root mean
+          squared error metrics. I chose these two metrics because they are in
+          the units of our target variable, making them easier to interpret. For
+          both metrics, the closer it is to zero, the less errors are in our
+          model. The mean absolute error is 22,891 meaning our salary prediction
+          is about 22,891 USD off from the actual value. The root mean squared
+          error says our salary prediction is 29,645 USD off from the actual
+          salary.
+        </p>
+        <p>
+          I also included the coefficient of determination show how the model
+          explains the variance in the dependent variables based on the
+          independent variable. The score suggests the model accounts for about
+          64.6% of the variability in the data, leaving approximately 35.4%
+          unexplained by the model.
+        </p>
+        <h1>Experiment 2</h1>
+        <br />
+        <p>
+          For this experiment, I am going to drop the years of experience column
+          and compare the results from the previous experiment.
+        </p>
+        <img
+          src="dist/img/project_3/experiment_2_head.PNG"
+          alt="experiment 2 head"
+        />
+        <ul>
+          <li>Mean Absolute Error: 24441.00019640226</li>
+          <li>Root Mean Square Error: 31998.210632092967</li>
+          <li>Coefficient of Determination: 0.633152075132096</li>
+        </ul>
+        <p>
+          Using the metrics, this model's results looks similar to the first
+          experiment's results. We can conclude that years of experience doesn't
+          have much of an impact on this model.
+        </p>
+        <h1>Experiment 3</h1>
+        <br />
+        <img
+          src="dist/img/project_3/experiment_3.PNG"
+          alt="experiment 3 head"
+        />
+        <ul>
+          <li>Mean Absolute Error: 25151.773666518955</li>
+          <li>Root Mean Square Error: 32248.327308551154</li>
+          <li>Coefficient of Determination: 0.5811654410322951</li>
+        </ul>
+        <p>
+          These metrics differ significantly from the previous two evaluations.
+          Compared to the first experiment, both the mean absolute error and
+          root mean squared error have increased by approximately 3,000.
+          Moreover, the coefficient of determination demonstrates a substantial
+          impact, dropping by 8%, from 64% to 58%. This experiment highlights
+          the significant role of the 'education' feature in predicting salary,
+          demonstrating its greater impact compared to experience.
+        </p>
+        <h2>Impact</h2>
+        <p>
+          By demonstrating the significant impact of education on salary
+          prediction, this project has the potential to inspire individuals who
+          are undecided about furthering their education. The correlation
+          between education level and salary prediction can serve as an
+          incentive for those contemplating returning to school. Highlighting
+          the higher salary associated with higher education might encourage
+          individuals to invest in their education.
+        </p>
+        <p>
+          While showcasing the importance of education in salary prediction,
+          it's essential to acknowledge that some individuals may face financial
+          constraints that hinder their ability to pursue higher education.
+          Individuals who aspire to pursue education but lack the financial
+          means could become discouraged, potentially leading to a sense of
+          decreased motivation to pursue professional growth
+        </p>
+        <h2>Conclusion</h2>
+        <p>
+          I saw first-hand how much weight some features have over others. In my
+          case, education had the most influence. During the third experiment, I
+          initially removed the 'age' column and conducted a comparison of the
+          results. However, due to the similarity with the outcomes of the first
+          two experiments, I replaced it with the 'education' column. I also
+          learned how important it is to use multiple metrics because they vary
+          and have their own advantages/disadvantages.
+        </p>
+        <h2>References</h2>
+        <ul>
+          <li>
+            <a href="/dist/notebooks/Project_3.ipynb" download=""
+              >Jupyter Notebook Download</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.kaggle.com/datasets/mohithsairamreddy/salary-data/data"
+              >Dataset on Kaggle</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fvitalflux.com%2Fr-squared-explained-machine-learning%2F&psig=AOvVaw1RveVMA5T2ohvfe3nddmGN&ust=1697658719560000&source=images&cd=vfe&opi=89978449&ved=0CBIQjhxqFwoTCNDPufHt_YEDFQAAAAAdAAAAABAI"
+              >R-Squared Formula</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html"
+              >Column Transformer</a
+            >
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script src="dist/js/main.js"></script>
+  </body>
+</html>
