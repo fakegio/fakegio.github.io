@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <link rel="stylesheet" href="dist/css/project.css" />
+    <title>Project 4: Clustering Horror Movies</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu-btn">
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+      <nav class="menu">
+        <div class="menu-branding"></div>
+        <ul class="menu-nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About me</a>
+          </li>
+          <li class="nav-item current">
+            <a href="work.html" class="nav-link">Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="project-main">
+        <h1 class="lg-heading">
+        Project 4:
+            <span class="text-secondary">Clustering Horror Movies</span>
+        </h1>
+        <div class="content-container">
+          <h2>Introducing The Problem</h2>
+          <p>
+            I've watched horror movies ever since I was a kid. Over the years,
+            it's become increasingly challenging to discover ones I haven't
+            already seen. As my list of viewed mainstream movies expands, I find
+            myself delving deeper into niche movies. Although, I don't want to
+            spend half of a movie just to figure out if I'll enjoy it or not.
+            The main question I have is can I utilize clustering to identify
+            horror movies I haven't watched and might enjoy?
+          </p>
+          <h2>What Is Clustering?</h2>
+          <p>
+            Clustering is a machine learning technique that involves grouping
+            data points. Data points in the same group have similar properties,
+            while data in different groups have dissimilar properties. In this
+            project, I'm going to use a specific type of clustering called
+            K-Means clustering. For K-Means Clustering, we must first decide how
+            many clusters we want to have. We can decide on this by using what's
+            called the elbow method. The elbow method calculates and graphs the
+            sum of the square distance between points in a cluster and the
+            center of the cluster. It does this for a range of clusters, usually
+            1-10, and the number of clusters is decided on which K in the graph
+            represents an "elbow". After deciding on how many clusters we want
+            to have in our model, we randomly initialize the centroids of each
+            cluster. Each data point is categorized by calculating it's distance
+            between each centroid and classifying the point to be in the group
+            whose center is closest. After all data points are clustered, the
+            center of each cluster is recalculated by taking the mean of its
+            data points. This process is repeated until the clusters stop
+            changing.
+          </p>
+          <h2>Introducing The Data</h2>
+          <p>
+            I found my dataset on
+            <a
+              href="http://localhost:8888/notebooks/Jupyter_Notebooks/project_4/%22https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-dataset%22"
+            ></a
+            >Kaggle. The dataset includes horror movies dating back from the
+            1950s. The data includes 32,540 rows and 20 columns. The columns
+            include:
+            <ul>
+                <li>id</li>
+                <li>original title</li>
+                <li>title</li>
+                <li>original language</li>
+                <li>movie description</li>
+                <li>movie tagline</li>
+                <li>release date</li>
+                <li>a URL path to the poster</li>
+                <li>popularity (as of September 2023)</li>
+                <li>vote count (number of ratings)</li>
+                <li>vote average</li>
+                <li>budget</li>
+                <li>revenue</li>
+                <li>runtime in minutes</li>
+                <li>status (e.g., released)</li>
+                <li>genre</li>
+                <li>collection id</li>
+                <li>collection name (series name)</li>
+              </ul>
+          </p>
+          <img src="/dist/img/project_4/data_head.PNG" alt="head of original data">
+        </div>
+    </main>
+    <script src="dist/js/main.js"></script>
+  </body>
+</html>
