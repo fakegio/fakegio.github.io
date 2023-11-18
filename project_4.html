@@ -97,6 +97,37 @@
               </ul>
           </p>
           <img src="/dist/img/project_4/data_head.PNG" alt="head of original data">
+          <h2>Data Pre-Processing</h2>
+          <img src="dist/img/project_4/check_nulls.PNG" alt="checking for nulls">
+          <p>Checking for nulls, given that most of the nulls are in columns that won't be necessary for this project, I'm going to drop the null values.</p>
+          <p>The data is well-structured and contains the information I need, so that will be it for pre-processing.</p>
+          <h2>Data Visualization</h2>
+          <p>In this step, I will be delving deeper into the data to get a better understanding and pick out features to use in my clustering model.</p>
+          <img src="dist/img/project_4/objects.PNG" alt="object types">
+          <p>As you can see, there are many object types, most likely referring to the string values of each movie.</p>
+          <img src="dist/img/project_4/describe.PNG" alt="numerical description">
+          <p>Given from this graph, the movies in this dataset contain, on average, 62 votes and a 3.34/10 rating.</p>
+          <p>Next, I'm going to use a heatmap to choose features in our clustering model.</p>
+          <img src="dist/img/project_4/heatmap.png" alt="heatmap">
+          <p>The strongest correlation seems to be with revenue and vote count which makes sense. High revenue movies tend to have more ratings, whether good or bad. Budget and revenue also have a correlation, suggesting that the higher a movie budget, the more generated revenue.</p>
+          <p>From this heatmap, my chosen features are going to be revenue, vote count, and budget. I'm also going to include popularity and vote average, as I'm curious to see how these two features will affect our clusters.</p>
+          <h2>Modeling</h2>
+          <p>I'm going to be using K-Means clustering over agglomerative clustering due to having a large dataset (agglomerative clustering is resource-intensive). Also, agglomerative clustering is more sensitive to outliers. From our data visualization section, we see that on average, movies have a rating of 3.3/10 and the highest movie rating is a 10/10. The average vote count is 62 with the highest vote count being 16,900.</p>
+          <p>As I stated before, I'm going to be using revenue, vote count, budget, popularity and vote average for our features.</p>
+          <p>Before we can train our model, we have to specify the amount of clusters, K, we want. We can decide on an amount using the elbow method, as mentioned before.</p>
+          <img src="dist/img/project_4/elbow.png" alt="elbow method">
+          <p>I'd say the elbow point would be at 3, because the variance decrease rate starts to flatten out.</p>
+          <img src="dist/img/project_4/cluster_scatter.png" alt="scatter plot">
+          <h2>Clustering Analysis</h2>
+          <p>It seems that movies are clustered based on how much revenue they generated. Using the interactive cluster, in the jupyter notebook linked below, I was able to gain some more insight on which specific movies were in each cluster. There are two main outliers: It (2017) and The Shining. One surprising piece of information is The Shining being clustered in cluster 1 (low revenue) despite having the second highest vote count at almost 15k and a vote average of 8.2/10. This suggests that as time went on, the movie gained appreciation. Pointing back to my motivation for this project, I'm able to find horror movies that I have not watched before. Just out of cluster 3, this includes the Resident Evil series, The Meg, the Alien series, and others.</p>
+          <h2>Impact</h2>
+          <p>An impact this project could have is discovering new movies that you may end up loving. A negative impact could be placing too much emphasis on mainstream blockbusters. The intention of this was to find lesser-known horror movies but I can see how people can overlook this.</p>
+          <h2>References</h2>
+          <ul>
+            <li><a href="dist/notebooks/Project_4.ipynb" download="">Notebook Download</a></li>
+            <li><a href="https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-dataset">Kaggle Dataset</a></li>
+            <li><a href="http://localhost:8888/notebooks/Jupyter_Notebooks/project_4/%22https://www.analyticsvidhya.com/blog/2021/01/in-depth-intuition-of-k-means-clustering-algorithm-in-machine-learning/#What_Is_the_Elbow_Method_in_K-Means_Clustering?%22">Elbow Method</a></li>
+          </ul>
         </div>
     </main>
     <script src="dist/js/main.js"></script>
