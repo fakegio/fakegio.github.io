@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dist/css/main.css" />
-    <link rel="stylesheet" href="dist/css/project.css" />
+    <link rel="stylesheet" href="/dist/css/main.css" />
     <title>Project 4: Clustering Horror Movies</title>
   </head>
   <body>
@@ -18,13 +17,13 @@
         <div class="menu-branding"></div>
         <ul class="menu-nav">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="/index.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="about.html" class="nav-link">About me</a>
+            <a href="/about.html" class="nav-link">About me</a>
           </li>
           <li class="nav-item current">
-            <a href="work.html" class="nav-link">Portfolio</a>
+            <a href="/work.html" class="nav-link">Portfolio</a>
           </li>
         </ul>
       </nav>
@@ -70,7 +69,7 @@
           <p>
             I found my dataset on
             <a
-              href="http://localhost:8888/notebooks/Jupyter_Notebooks/project_4/%22https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-dataset%22"
+              href="https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-dataset%22"
             ></a
             >Kaggle. The dataset includes horror movies dating back from the
             1950s. The data includes 32,540 rows and 20 columns. The columns
@@ -98,26 +97,26 @@
           </p>
           <img src="/dist/img/project_4/data_head.PNG" alt="head of original data">
           <h2>Data Pre-Processing</h2>
-          <img src="dist/img/project_4/check_nulls.PNG" alt="checking for nulls">
+          <img src="/dist/img/project_4/check_nulls.PNG" alt="checking for nulls">
           <p>Checking for nulls, given that most of the nulls are in columns that won't be necessary for this project, I'm going to drop the null values.</p>
           <p>The data is well-structured and contains the information I need, so that will be it for pre-processing.</p>
           <h2>Data Visualization</h2>
           <p>In this step, I will be delving deeper into the data to get a better understanding and pick out features to use in my clustering model.</p>
-          <img src="dist/img/project_4/objects.PNG" alt="object types">
+          <img src="/dist/img/project_4/objects.PNG" alt="object types">
           <p>As you can see, there are many object types, most likely referring to the string values of each movie.</p>
-          <img src="dist/img/project_4/describe.PNG" alt="numerical description">
+          <img src="/dist/img/project_4/describe.PNG" alt="numerical description">
           <p>Given from this graph, the movies in this dataset contain, on average, 62 votes and a 3.34/10 rating.</p>
           <p>Next, I'm going to use a heatmap to choose features in our clustering model.</p>
-          <img src="dist/img/project_4/heatmap.png" alt="heatmap">
+          <img src="/dist/img/project_4/heatmap.png" alt="heatmap">
           <p>The strongest correlation seems to be with revenue and vote count which makes sense. High revenue movies tend to have more ratings, whether good or bad. Budget and revenue also have a correlation, suggesting that the higher a movie budget, the more generated revenue.</p>
           <p>From this heatmap, my chosen features are going to be revenue, vote count, and budget. I'm also going to include popularity and vote average, as I'm curious to see how these two features will affect our clusters.</p>
           <h2>Modeling</h2>
           <p>I'm going to be using K-Means clustering over agglomerative clustering due to having a large dataset (agglomerative clustering is resource-intensive). Also, agglomerative clustering is more sensitive to outliers. From our data visualization section, we see that on average, movies have a rating of 3.3/10 and the highest movie rating is a 10/10. The average vote count is 62 with the highest vote count being 16,900.</p>
           <p>As I stated before, I'm going to be using revenue, vote count, budget, popularity and vote average for our features.</p>
           <p>Before we can train our model, we have to specify the amount of clusters, K, we want. We can decide on an amount using the elbow method, as mentioned before.</p>
-          <img src="dist/img/project_4/elbow.png" alt="elbow method">
+          <img src="/dist/img/project_4/elbow.png" alt="elbow method">
           <p>I'd say the elbow point would be at 3, because the variance decrease rate starts to flatten out.</p>
-          <img src="dist/img/project_4/cluster_scatter.png" alt="scatter plot">
+          <img src="/dist/img/project_4/cluster_scatter.png" alt="scatter plot">
           <h2>Clustering Analysis</h2>
           <p>It seems that movies are clustered based on how much revenue they generated. Using the interactive cluster, in the jupyter notebook linked below, I was able to gain some more insight on which specific movies were in each cluster. There are two main outliers: It (2017) and The Shining. One surprising piece of information is The Shining being clustered in cluster 1 (low revenue) despite having the second highest vote count at almost 15k and a vote average of 8.2/10. This suggests that as time went on, the movie gained appreciation. Pointing back to my motivation for this project, I'm able to find horror movies that I have not watched before. Just out of cluster 3, this includes the Resident Evil series, The Meg, the Alien series, and others.</p>
           <h2>Impact</h2>
@@ -130,6 +129,6 @@
           </ul>
         </div>
     </main>
-    <script src="dist/js/main.js"></script>
+    <script src="/dist/js/main.js"></script>
   </body>
 </html>

@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dist/css/main.css" />
-    <link rel="stylesheet" href="dist/css/project.css" />
+    <link rel="stylesheet" href="/dist/css/main.css" />
     <title>Project 3: Predicting Salary</title>
   </head>
   <body>
@@ -18,13 +17,13 @@
         <div class="menu-branding"></div>
         <ul class="menu-nav">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="/index.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="about.html" class="nav-link">About me</a>
+            <a href="/about.html" class="nav-link">About me</a>
           </li>
           <li class="nav-item current">
-            <a href="work.html" class="nav-link">Portfolio</a>
+            <a href="/work.html" class="nav-link">Portfolio</a>
           </li>
         </ul>
       </nav>
@@ -57,7 +56,7 @@
           everyone.
         </p>
         <h2>Introducing The Data</h2>
-        <img src="dist/img/project_3/introduce_data.PNG" alt="introduce data" />
+        <img src="/dist/img/project_3/introduce_data.PNG" alt="introduce data" />
         <p>
           For this project, I'm going to be using a salary dataset found on
           <a
@@ -92,23 +91,23 @@
           explained by our features. In other words, how "good" is our line of
           best-fit.
         </p>
-        <img src="dist/img/project_3/r_squared.jpg" alt="R squared formula" />
+        <img src="/dist/img/project_3/r_squared.jpg" alt="R squared formula" />
         <h1>Experiment 1</h1>
         <br />
         <h2>Data Understanding</h2>
-        <img src="dist/img/project_3/describe_data.PNG" alt="describe data" />
+        <img src="/dist/img/project_3/describe_data.PNG" alt="describe data" />
         <p>
           Before diving in, I decided to look at the mean and standard deviation
           for the numerical variables to get a better understanding of the data.
         </p>
-        <img src="dist/img/project_3/salary_age.png" alt="Salary by age" />
+        <img src="/dist/img/project_3/salary_age.png" alt="Salary by age" />
         <p>
           Then, I plotted the relationship between age and salary. As you can
           see, there is a strong positive correlation suggesting that as age
           increases, salary tends to increase as well.
         </p>
         <img
-          src="dist/img/project_3/salary_experience.png"
+          src="/dist/img/project_3/salary_experience.png"
           alt="Salary by experience"
         />
         <p>
@@ -123,7 +122,7 @@
           individual's salary.
         </p>
         <img
-          src="dist/img/project_3/salary_by_gender.png"
+          src="/dist/img/project_3/salary_by_gender.png"
           alt="Salary by gender"
         />
         <p>
@@ -142,19 +141,19 @@
           experience, and gender in our regression model to predict salary.
         </p>
         <h2>Pre-Processing</h2>
-        <img src="dist/img/project_3/null_table_1.PNG" alt="null table" />
+        <img src="/dist/img/project_3/null_table_1.PNG" alt="null table" />
         <p>Searching for nulls. We can drop the first two rows immediately.</p>
-        <img src="dist/img/project_3/null_table_2.PNG" alt="null table" />
+        <img src="/dist/img/project_3/null_table_2.PNG" alt="null table" />
         <p>
           Dropping the 3rd row due to insufficient amount of information to fill
           in the null values.
         </p>
-        <img src="dist/img/project_3/null_table_3.PNG" alt="null table" />
+        <img src="/dist/img/project_3/null_table_3.PNG" alt="null table" />
         <br />
         <br />
         <br />
         <img
-          src="dist/img/project_3/developer_table.PNG"
+          src="/dist/img/project_3/developer_table.PNG"
           alt="developer table"
         />
         <p>
@@ -162,28 +161,28 @@
           title and fill in the null value, but since this row is the only one
           with this job title, I'll drop it.
         </p>
-        <img src="dist/img/project_3/null_table_4.PNG" alt="null table" />
+        <img src="/dist/img/project_3/null_table_4.PNG" alt="null table" />
         <p>
           Now, for each of these rows, I'm going to take the average salary
           based on their education level, job title, and years of experience to
           fill in the null value.
         </p>
         <img
-          src="dist/img/project_3/new_salary_engineer.PNG"
+          src="/dist/img/project_3/new_salary_engineer.PNG"
           alt="new salary engineer"
         />
         <br />
         <br />
         <br />
         <img
-          src="dist/img/project_3/new_salary_director.PNG"
+          src="/dist/img/project_3/new_salary_director.PNG"
           alt="new salary director"
         />
         <br />
         <br />
         <br />
         <img
-          src="dist/img/project_3/head_after_job_title.PNG"
+          src="/dist/img/project_3/head_after_job_title.PNG"
           alt="head after dropping job title"
         />
         <p>
@@ -204,7 +203,7 @@
           consistency.
         </p>
         <img
-          src="dist/img/project_3/head_after_encoding.PNG"
+          src="/dist/img/project_3/head_after_encoding.PNG"
           alt="data after encoding"
         />
         <p>
@@ -216,14 +215,14 @@
           Before we build our model, we must standardize our numerical features.
         </p>
         <img
-          src="dist/img/project_3/standardization.PNG"
+          src="/dist/img/project_3/standardization.PNG"
           alt="standardization"
         />
         <p>
           Now, we can separate our features from the target and fit the model.
         </p>
         <img
-          src="dist/img/project_3/separate_features.PNG"
+          src="/dist/img/project_3/separate_features.PNG"
           alt="separate features"
         />
         <h2>Evaluation</h2>
@@ -260,7 +259,7 @@
           and compare the results from the previous experiment.
         </p>
         <img
-          src="dist/img/project_3/experiment_2_head.PNG"
+          src="/dist/img/project_3/experiment_2_head.PNG"
           alt="experiment 2 head"
         />
         <ul>
@@ -280,7 +279,7 @@
           the results from the previous experiments.
         </p>
         <img
-          src="dist/img/project_3/experiment_3.PNG"
+          src="/dist/img/project_3/experiment_3.PNG"
           alt="experiment 3 head"
         />
         <ul>
@@ -353,6 +352,6 @@
         </ul>
       </div>
     </main>
-    <script src="dist/js/main.js"></script>
+    <script src="/dist/js/main.js"></script>
   </body>
 </html>

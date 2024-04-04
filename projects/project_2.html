@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dist/css/main.css" />
-    <link rel="stylesheet" href="dist/css/project.css" />
+    <link rel="stylesheet" href="/dist/css/main.css" />
     <title>Project 2: Classifying Popular Songs</title>
   </head>
   <body>
@@ -18,13 +17,13 @@
         <div class="menu-branding"></div>
         <ul class="menu-nav">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="/index.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="about.html" class="nav-link">About me</a>
+            <a href="/about.html" class="nav-link">About me</a>
           </li>
           <li class="nav-item current">
-            <a href="work.html" class="nav-link">Portfolio</a>
+            <a href="/work.html" class="nav-link">Portfolio</a>
           </li>
         </ul>
       </nav>
@@ -51,7 +50,7 @@
         </p>
         <h2>Introducing The Data</h2>
         <img
-          src="dist/img/project_2/data_before_cleaning.PNG"
+          src="/dist/img/project_2/data_before_cleaning.PNG"
           alt="head of dataset before"
         />
         <p>
@@ -166,16 +165,16 @@
           <li>track_genre: The genre in which the track belongs</li>
         </ul>
         <h2>Pre-Processing</h2>
-        <img src="dist/img/project_2/rename.PNG" alt="rename unnamed column" />
+        <img src="/dist/img/project_2/rename.PNG" alt="rename unnamed column" />
         <p>First, I'm going to give the unnamed column a name.</p>
         <img
           id="nulls_img"
-          src="dist/img/project_2/searching_nulls.PNG"
+          src="/dist/img/project_2/searching_nulls.PNG"
           alt="searching for nulls"
         />
         <p>Searching for null values.</p>
         <img
-          src="dist/img/project_2/artist_null.PNG"
+          src="/dist/img/project_2/artist_null.PNG"
           alt="searching for specific null"
         />
         <p>
@@ -184,11 +183,11 @@
           belongs to.
         </p>
         <img
-          src="dist/img/project_2/drop_null.PNG"
+          src="/dist/img/project_2/drop_null.PNG"
           alt="dropping null values"
         />
         <img
-          src="dist/img/project_2/show_size.PNG"
+          src="/dist/img/project_2/show_size.PNG"
           alt="show size of unique tracks"
         />
         <p>
@@ -196,26 +195,26 @@
           almost half the tracks were duplicates.
         </p>
         <img
-          src="dist/img/project_2/drop_duplicates.PNG"
+          src="/dist/img/project_2/drop_duplicates.PNG"
           alt="dropping duplicates"
         />
         <p>Dropping the duplicate tracks by their names.</p>
         <img
-          src="dist/img/project_2/show_shape.PNG"
+          src="/dist/img/project_2/show_shape.PNG"
           alt="shape after dropping duplicates"
         />
         <p>From 140,000 rows to 73,608 rows.</p>
-        <img src="dist/img/project_2/genres.PNG" alt="showing genres" />
+        <img src="/dist/img/project_2/genres.PNG" alt="showing genres" />
         <p>Let's look at the genres in the data.</p>
         <img
-          src="dist/img/project_2/drop_genres.PNG"
+          src="/dist/img/project_2/drop_genres.PNG"
           alt="dropping sleep and comedy tracks"
         />
         <p>
           Because we only care about songs, we'll drop sleep and comedy tracks.
         </p>
         <img
-          src="dist/img/project_2/drop_columns.PNG"
+          src="/dist/img/project_2/drop_columns.PNG"
           alt="drop other columns"
         />
         <p>
@@ -225,7 +224,7 @@
           artists column is dropped due to potential overfitting.
         </p>
         <img
-          src="dist/img/project_2/head_after_cleaning.PNG"
+          src="/dist/img/project_2/head_after_cleaning.PNG"
           alt="head after cleaning"
         />
         <p>All done.</p>
@@ -236,7 +235,7 @@
           popularity. Let's plot these.
         </p>
         <img
-          src="dist/img/project_2/danceability.png"
+          src="/dist/img/project_2/danceability.png"
           alt="danceability vs popularity"
         />
         <p>
@@ -248,7 +247,7 @@
           there is a concentration of songs falling in the middle for both
           features.
         </p>
-        <img src="dist/img/project_2/energy.png" alt="energy vs popularity" />
+        <img src="/dist/img/project_2/energy.png" alt="energy vs popularity" />
         <p>
           This kernel density estimation (KDE) plot works similar to the hexbin
           plot. The darker hue illustrates a higher concentration of songs with
@@ -258,7 +257,7 @@
           concentrated areas for both plots.
         </p>
         <img
-          src="dist/img/project_2/popular_genres.png"
+          src="/dist/img/project_2/popular_genres.png"
           alt="popular genres in our data"
         />
         <p>
@@ -288,26 +287,26 @@
           In order to use a decision tree, I need to convert the explicit and
           genre columns into numerical values.
         </p>
-        <img src="dist/img/project_2/dummies.PNG" alt="create dummies" />
+        <img src="/dist/img/project_2/dummies.PNG" alt="create dummies" />
         <p>
           I arbitrarily consider songs in the 75th percentile of popularity
           values in the data set to be popular. I create a new column
           determining if each track is "popular" or not.
         </p>
         <img
-          src="dist/img/project_2/set_features.PNG"
+          src="/dist/img/project_2/set_features.PNG"
           alt="setting the features"
         />
         <p>
           Next, we need to set our X and y values. X contains the features, y
           contains the target, in this case, our target is the 75th percentile.
         </p>
-        <img src="dist/img/project_2/train.PNG" alt="training the model" />
+        <img src="/dist/img/project_2/train.PNG" alt="training the model" />
         <p>
           Now, I'm splitting the test size to be 20% of the data, while the
           training size is 80%.
         </p>
-        <img src="dist/img/project_2/decision_tree.png" alt="decision tree" />
+        <img src="/dist/img/project_2/decision_tree.png" alt="decision tree" />
         <p>
           The model is trained and here is a visual depiction. As seen above, it
           looks like the most important feature was whether a song was of the
@@ -323,18 +322,18 @@
           case. Accuracy works by calculating the proportion of correct
           predictions out of total predictions.
         </p>
-        <img src="dist/img/project_2/score.PNG" alt="score of our model" />
+        <img src="/dist/img/project_2/score.PNG" alt="score of our model" />
         <p>
           Looks like our accuracy is about 74%. Let's look at some more
           evaluation metrics.
         </p>
-        <img src="dist/img/project_2/report.PNG" alt="classification report" />
+        <img src="/dist/img/project_2/report.PNG" alt="classification report" />
         <p>
           It looks like our model was better at predicting if a song didn't make
           the 75th percentile, with an all-around score of 83%.
         </p>
         <img
-          src="dist/img/project_2/fi.png"
+          src="/dist/img/project_2/fi.png"
           alt="bar chart of feature importance"
         />
         <p>
@@ -368,7 +367,7 @@
         <h2>References</h2>
         <ul>
           <li>
-            <a href="dist/notebooks/Project_2.ipynb" download=""
+            <a href="/dist/notebooks/Project_2.ipynb" download=""
               >Jupyter Notebook Download</a
             >
           </li>
@@ -381,6 +380,6 @@
         </ul>
       </div>
     </main>
-    <script src="dist/js/main.js"></script>
+    <script src="/dist/js/main.js"></script>
   </body>
 </html>

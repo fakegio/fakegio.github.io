@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dist/css/main.css" />
-    <link rel="stylesheet" href="dist/css/project.css" />
+    <link rel="stylesheet" href="/dist/css/main.css" />
     <title>Project 1: Duke Students GPA</title>
   </head>
   <body>
@@ -18,13 +17,13 @@
         <div class="menu-branding"></div>
         <ul class="menu-nav">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="/index.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="about.html" class="nav-link">About me</a>
+            <a href="/about.html" class="nav-link">About me</a>
           </li>
           <li class="nav-item current">
-            <a href="work.html" class="nav-link">Portfolio</a>
+            <a href="/work.html" class="nav-link">Portfolio</a>
           </li>
         </ul>
       </nav>
@@ -55,7 +54,7 @@
           </li>
         </ul>
         <h2>Introducing The Data</h2>
-        <img src="dist/img/df_head_before.PNG" alt="head of dataset before" />
+        <img src="/dist/img/df_head_before.PNG" alt="head of dataset before" />
         <p>
           I found the dataset on
           <a
@@ -71,37 +70,37 @@
           often they go out per week, and their gender.
         </p>
         <h2>Pre-Processing</h2>
-        <img src="dist/img/isNull.PNG" alt="sum of null values" />
+        <img src="/dist/img/isNull.PNG" alt="sum of null values" />
         <p>
           Upon first inspection, I started off by checking the data for any null
           values, luckily there were none.
         </p>
-        <img src="dist/img/drop_gender.PNG" alt="drop gender column" />
+        <img src="/dist/img/drop_gender.PNG" alt="drop gender column" />
         <p>
           I proceeded to drop the gender column as it won't have any effect on
           the questions I'm hoping to answer.
         </p>
-        <img src="dist/img/rename.PNG" alt="renamed columns" />
+        <img src="/dist/img/rename.PNG" alt="renamed columns" />
         <p>
           Next, I decided to change each column name to something a bit more
           descriptive.
         </p>
         <img
-          src="dist/img/math_floor.PNG"
+          src="/dist/img/math_floor.PNG"
           alt="rounded down nights per week values"
         />
         <p>
           Then, I rounded the nights out per week values down because it doesn't
           make sense to go out half a night per week, to me at least.
         </p>
-        <img src="dist/img/df_head.PNG" alt="df head after" />
+        <img src="/dist/img/df_head.PNG" alt="df head after" />
         <p>
           Due to the small sample size of the dataset and no null values, there
           wasn't much pre-processing to do.
         </p>
         <h2>Data Visualization</h2>
         <img
-          src="dist/img/distribution_studying.png"
+          src="/dist/img/distribution_studying.png"
           alt="distribution of GPA vs weekly studying hours"
         />
         <p>
@@ -113,7 +112,7 @@
           the rest of the hourly values.
         </p>
         <img
-          src="dist/img/heatmap_p1_features.png"
+          src="/dist/img/heatmap_p1_features.png"
           alt="student behaviors and academic performance"
         />
         <p>
@@ -136,7 +135,7 @@
         </p>
         <h3>Social Habits</h3>
         <img
-          src="dist/img/distribution_nights.png"
+          src="/dist/img/distribution_nights.png"
           alt="distribution of students weekly nights out"
         />
         <p>
@@ -149,7 +148,7 @@
         </p>
         <p>Now, let's see how these social habits affect GPA, if at all.</p>
         <img
-          src="dist/img/nights_vs_gpa.png"
+          src="/dist/img/nights_vs_gpa.png"
           alt="gpa changes with nights out"
         />
         <p>
@@ -170,7 +169,7 @@
           >, adults should be getting at least 7 hours of sleep at night.
         </p>
         <img
-          src="dist/img/sleep_distribution.png"
+          src="/dist/img/sleep_distribution.png"
           alt="distribution of student sleep hours"
         />
         <p>
@@ -179,7 +178,7 @@
           get enough sleep.
         </p>
         <img
-          src="dist/img/sleep_vs_gpa.png"
+          src="/dist/img/sleep_vs_gpa.png"
           alt="relationship between hours of sleep and gpa"
         />
         <p>
@@ -192,7 +191,7 @@
         </p>
         <h3>The Dilemma Visualization</h3>
         <img
-          src="dist/img/dilemma_visual.png"
+          src="/dist/img/dilemma_visual.png"
           alt="visualizing gpa, social life, and sleep habits"
         />
         <p>
@@ -236,7 +235,7 @@
         <h2>References</h2>
         <ul>
           <li>
-            <a href="dist/notebooks/Project_1.ipynb" download=""
+            <a href="/dist/notebooks/Project_1.ipynb" download=""
               >Jupyter Notebook Download</a
             >
           </li>
@@ -260,6 +259,6 @@
         </ul>
       </div>
     </main>
-    <script src="dist/js/main.js"></script>
+    <script src="/dist/js/main.js"></script>
   </body>
 </html>
