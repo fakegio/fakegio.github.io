@@ -4,11 +4,11 @@
   "description": "Responsive portfolio website",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css --recursive "
+    "sass": "sass --watch scss:dist/css"
   },
-  "author": "Gio Chula",
+  "author": "Gio Daza",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^9.0.0"
+    "sass": "^1.83.0"
   }
 }
