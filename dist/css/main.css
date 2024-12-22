@@ -226,6 +226,11 @@ main#home h1 {
   padding: 1.5rem 2rem;
   border-bottom: #440066 5px solid;
 }
+.about-info ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8rem;
+}
 
 .projects {
   display: grid;
